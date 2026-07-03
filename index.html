@@ -1,91 +1,369 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Gleason Electric</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gleason Electric | EV Charging & Electrical Services</title>
   <style>
+    * { box-sizing: border-box; }
+
     body {
-      font-family: Arial;
       margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
       background: #0f172a;
-      color: white;
+      color: #ffffff;
+      line-height: 1.6;
     }
+
     header {
-      background: #111827;
-      padding: 20px;
-      text-align: center;
+      background: #020617;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    h1 {
-      margin: 0;
-      font-size: 32px;
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #38bdf8;
     }
+
+    nav a {
+      color: #ffffff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
     .hero {
-      padding: 60px 20px;
-      text-align: center;
+      padding: 90px 8%;
+      background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
     }
-    .btn {
-      background: #22c55e;
-      color: black;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
       margin-bottom: 20px;
-      border-radius: 6px;
-      border: none;
     }
-    .form {
-      background: #1f2937;
-      padding: 20px;
+
+    .hero p {
+      font-size: 20px;
+      color: #cbd5e1;
+      max-width: 650px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #22c55e;
+      color: #020617;
+      padding: 15px 24px;
       border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #38bdf8;
+      margin-left: 12px;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      color: #38bdf8;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: #cbd5e1;
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      color: #38bdf8;
+      margin-top: 0;
+    }
+
+    .highlight {
+      background: #020617;
+      border-top: 1px solid #334155;
+      border-bottom: 1px solid #334155;
+    }
+
+    .quote-box {
+      background: #1e293b;
+      border-radius: 18px;
+      padding: 30px;
+      max-width: 850px;
+      border: 1px solid #334155;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0 18px;
+      border-radius: 10px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    label {
+      font-weight: bold;
+      color: #e2e8f0;
+    }
+
+    footer {
+      background: #020617;
+      padding: 35px 8%;
+      color: #94a3b8;
+      text-align: center;
+      border-top: 1px solid #334155;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        display: block;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+        display: inline-block;
+      }
+
+      .btn.secondary {
+        margin-left: 0;
+        margin-top: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Gleason Electric</h1>
-  <p>Residential • Commercial • EV Charging</p>
-</header>
+  <header>
+    <div class="logo">Gleason Electric</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#ev">EV Charging</a>
+      <a href="#quote">Get Quote</a>
+    </nav>
+  </header>
 
-<div class="hero">
-  <h2>Powering the Future of Electrical Work</h2>
-  <p>EV Charging • Service Upgrades • New Installs</p>
-  <button class="btn">Request a Free Quote</button>
-</div>
+  <section class="hero">
+    <div>
+      <h1>Powering Homes, Businesses, and the Future of Transportation.</h1>
+      <p>
+        Gleason Electric provides residential, commercial, and EV charging electrical services
+        across Missouri, Kansas, and Florida.
+      </p>
+      <a class="btn" href="#quote">Request a Free Quote</a>
+      <a class="btn secondary" href="#ev">EV Charging Services</a>
+    </div>
 
-<div class="section">
-  <h2>Get a Free Estimate</h2>
+    <div class="hero-card">
+      <h3>EV Charger Installation</h3>
+      <p>Residential chargers, commercial stations, fleet charging, panel upgrades, and site assessments.</p>
+      <p><strong>Level 2 • DC Fast Charging • Commercial • Residential</strong></p>
+    </div>
+  </section>
 
-  <div class="form">
-    <input type="text" placeholder="Full Name">
-    <input type="text" placeholder="Phone Number">
-    <input type="email" placeholder="Email">
-    <input type="text" placeholder="Address">
+  <section id="services">
+    <h2 class="section-title">Electrical Services</h2>
+    <p class="section-subtitle">
+      From everyday electrical work to advanced EV charging projects, Gleason Electric is built
+      to serve homeowners, businesses, and commercial property owners.
+    </p>
 
-    <select>
-      <option>Residential EV Charger</option>
-      <option>Commercial EV Charging</option>
-      <option>Electrical Service Upgrade</option>
-      <option>New Installation</option>
-    </select>
+    <div class="grid">
+      <div class="card">
+        <h3>Residential Electrical</h3>
+        <p>Panel work, outlets, lighting, service upgrades, troubleshooting, and home electrical installations.</p>
+      </div>
 
-    <button class="btn">Submit Request</button>
-  </div>
-</div>
+      <div class="card">
+        <h3>Commercial Electrical</h3>
+        <p>Electrical installations, tenant improvements, equipment connections, lighting, and service work.</p>
+      </div>
+
+      <div class="card">
+        <h3>EV Charging</h3>
+        <p>Home EV chargers, apartment charging, hotel charging, fleet charging, and commercial charging stations.</p>
+      </div>
+
+      <div class="card">
+        <h3>Panel Upgrades</h3>
+        <p>Electrical panel replacements and upgrades for homes and businesses preparing for EV charging.</p>
+      </div>
+
+      <div class="card">
+        <h3>Fleet Charging</h3>
+        <p>Charging solutions for companies transitioning vehicles, vans, trucks, or service fleets to electric.</p>
+      </div>
+
+      <div class="card">
+        <h3>Site Assessments</h3>
+        <p>We review your electrical setup, charging goals, parking layout, and project requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ev" class="highlight">
+    <h2 class="section-title">EV Charging Solutions</h2>
+    <p class="section-subtitle">
+      Whether you need a charger at home or a complete commercial EV charging setup,
+      Gleason Electric can help design, install, and support the right solution.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Home EV Chargers</h3>
+        <p>Tesla, Ford, Rivian, GM, ChargePoint, Wallbox, and universal Level 2 charger installations.</p>
+      </div>
+
+      <div class="card">
+        <h3>Commercial Charging</h3>
+        <p>Charging stations for apartments, hotels, retail centers, office buildings, and public parking areas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Incentive Guidance</h3>
+        <p>We help customers think through available rebates, utility programs, and charging project opportunities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Why Choose Gleason Electric?</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Residential & Commercial</h3>
+        <p>We handle both homeowners and larger commercial electrical projects.</p>
+      </div>
+
+      <div class="card">
+        <h3>EV Charging Focused</h3>
+        <p>Built for the growing demand for reliable EV charging infrastructure.</p>
+      </div>
+
+      <div class="card">
+        <h3>Fast Communication</h3>
+        <p>Clear estimates, responsive scheduling, and straightforward project planning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="highlight">
+    <h2 class="section-title">Request a Free Quote</h2>
+    <p class="section-subtitle">
+      Tell us what you need and we’ll follow up with next steps.
+    </p>
+
+    <div class="quote-box">
+      <form>
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name" />
+
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Your phone number" />
+
+        <label>Email</label>
+        <input type="email" placeholder="Your email address" />
+
+        <label>Project Address</label>
+        <input type="text" placeholder="Street, city, state" />
+
+        <label>What do you need?</label>
+        <select>
+          <option>Residential EV Charger</option>
+          <option>Commercial EV Charging</option>
+          <option>Fleet Charging</option>
+          <option>Panel Upgrade</option>
+          <option>Residential Electrical Work</option>
+          <option>Commercial Electrical Work</option>
+          <option>Other</option>
+        </select>
+
+        <label>Project Details</label>
+        <textarea placeholder="Tell us about your project, vehicle, charger type, timeline, or electrical issue."></textarea>
+
+        <button class="btn" type="submit">Submit Request</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Gleason Electric</strong></p>
+    <p>Residential • Commercial • EV Charging</p>
+    <p>Serving Missouri, Kansas, and Florida</p>
+  </footer>
 
 </body>
 </html>
